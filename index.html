@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VERDE MOTORS | Autos que van contigo</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f1e8;
+            color: #173b2b;
+        }
+
+        h1, h2, h3, h4,
+        .logo,
+        nav,
+        button,
+        .price {
+            font-family: "Montserrat", Arial, sans-serif;
+        }
+
+
+        /* =====================================================
+           PALETA
+        ===================================================== */
+
+        :root {
+            --verde-profundo: #123d2b;
+            --verde: #1f5b3f;
+            --verde-medio: #2f7650;
+            --verde-claro: #789b68;
+            --crema: #f5f1e8;
+            --beige: #e7dcc8;
+            --dorado: #c39a5b;
+            --terracota: #a85f43;
+            --blanco: #ffffff;
+            --texto: #24372c;
+        }
+
+
+        /* =====================================================
+           FONDO SELVA
+        ===================================================== */
+
+        .leaf {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.13;
+            font-size: 170px;
+            color: #c7d7b9;
+            transform: rotate(-25deg);
+        }
+
+        .leaf.one {
+            top: 100px;
+            right: -30px;
+        }
+
+        .leaf.two {
+            bottom: 20px;
+            left: -50px;
+            transform: rotate(25deg);
+        }
+
+        .leaf.three {
+            top: 45%;
+            right: -70px;
+            font-size: 220px;
+            transform: rotate(20deg);
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            height: 82px;
+            padding: 0 7%;
+            background: rgba(18, 61, 43, 0.98);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4b06a;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f4eee1;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d5b26c;
+        }
+
+        .header-button {
+            background: #c39a5b;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 720px;
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(9, 42, 29, 0.94) 0%,
+                    rgba(15, 67, 43, 0.78) 48%,
+                    rgba(18, 61, 43, 0.25) 100%
+                ),
+                url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=90");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            padding: 0 9%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-tag {
+            color: #d5b26c;
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 6vw, 78px);
+            line-height: 1.02;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d5b26c;
+        }
+
+        .hero p {
+            max-width: 570px;
+            line-height: 1.8;
+            color: #e7e4d9;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-main {
+            background: #c39a5b;
+            color: white;
+            text-decoration: none;
+            padding: 16px 28px;
+            border-radius: 4px;
+            font-family: "Montserrat";
+            font-weight: 700;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover {
+            background: #aa7f40;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+            padding: 15px 28px;
+            border-radius: 4px;
+            font-family: "Montserrat";
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           BUSCADOR
+        ===================================================== */
+
+        .search-wrapper {
+            position: relative;
+            z-index: 10;
+            margin-top: -55px;
+        }
+
+        .search-box {
+            width: 82%;
+            margin: auto;
+            background: #fff;
+            padding: 30px 35px;
+            border-radius: 6px;
+            box-shadow: 0 15px 45px rgba(23,59,43,0.15);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .search-title {
+            min-width: 230px;
+        }
+
+        .search-title h2 {
+            font-size: 18px;
+            color: var(--verde-profundo);
+        }
+
+        .search-title p {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .filters {
+            display: flex;
+            flex: 1;
+            gap: 10px;
+        }
+
+        .filters select {
+            height: 45px;
+            flex: 1;
+            border: 1px solid #ddd4c3;
+            background: #faf8f3;
+            padding: 0 12px;
+            color: #304638;
+        }
+
+        .filter-button {
+            height: 45px;
+            background: var(--verde);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            font-family: "Montserrat";
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           INVENTARIO
+        ===================================================== */
+
+        .inventory {
+            position: relative;
+            padding: 120px 8%;
+            overflow: hidden;
+        }
+
+        .section-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            color: var(--terracota);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .section-top h2 {
+            font-size: 42px;
+            color: var(--verde-profundo);
+        }
+
+        .section-description {
+            color: #69776d;
+            max-width: 470px;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           TARJETAS DE AUTOS
+        ===================================================== */
+
+        .cars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 7px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(20,50,35,0.08);
+            transition: 0.35s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(20,50,35,0.15);
+        }
+
+        .car-photo {
+            height: 245px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .car-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .car-card:hover .car-photo img {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            z-index: 2;
+            background: var(--verde-profundo);
+            color: white;
+            padding: 7px 11px;
+            font-size: 9px;
+            font-family: "Montserrat";
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .badge.offer {
+            background: var(--terracota);
+        }
+
+        .badge.new {
+            background: var(--dorado);
+        }
+
+        .car-content {
+            padding: 24px;
+        }
+
+        .car-brand {
+            color: var(--terracota);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .car-content h3 {
+            color: var(--verde-profundo);
+            font-size: 22px;
+            margin: 7px 0 10px;
+        }
+
+        .car-description {
+            color: #68766d;
+            line-height: 1.65;
+            font-size: 12px;
+            min-height: 60px;
+        }
+
+        .car-specs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            border-top: 1px solid #eee9df;
+            border-bottom: 1px solid #eee9df;
+            padding: 15px 0;
+            margin: 17px 0;
+        }
+
+        .spec {
+            font-size: 10px;
+            color: #66736a;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+        }
+
+        .price-label {
+            color: #999;
+            font-size: 10px;
+        }
+
+        .price {
+            display: block;
+            color: var(--verde-profundo);
+            font-size: 23px;
+            font-weight: 800;
+            margin-top: 3px;
+        }
+
+        .view-car {
+            border: none;
+            background: var(--verde);
+            color: white;
+            padding: 11px 16px;
+            font-family: "Montserrat";
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           FRANJA SELVA
+        ===================================================== */
+
+        .jungle-section {
+            position: relative;
+            min-height: 420px;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(9,48,32,0.86),
+                    rgba(15,70,45,0.92)
+                ),
+                url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .jungle-content {
+            max-width: 720px;
+            color: white;
+        }
+
+        .jungle-content .section-label {
+            color: #d5b26c;
+        }
+
+        .jungle-content h2 {
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .jungle-content p {
+            color: #dbe4da;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+
+        /* =====================================================
+           BENEFICIOS
+        ===================================================== */
+
+        .benefits-section {
+            padding: 100px 8%;
+            background: #f5f1e8;
+        }
+
+        .benefits-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .benefits-title h2 {
+            color: var(--verde-profundo);
+            font-size: 40px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .benefit {
+            background: white;
+            padding: 35px;
+            border-radius: 6px;
+            border-bottom: 4px solid var(--verde);
+        }
+
+        .benefit-icon {
+            width: 45px;
+            height: 45px;
+            background: #e3eadc;
+            color: var(--verde);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .benefit h3 {
+            color: var(--verde-profundo);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .benefit p {
+            color: #718076;
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           FINANCIAMIENTO
+        ===================================================== */
+
+        .financing {
+            background: var(--verde-profundo);
+            color: white;
+            padding: 100px 8%;
+        }
+
+        .financing-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 430px;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .financing h2 {
+            font-size: 46px;
+            line-height: 1.1;
+            margin-bottom: 22px;
+        }
+
+        .financing-text {
+            color: #c8d4ca;
+            line-height: 1.8;
+            max-width: 560px;
+        }
+
+        .calculator {
+            background: #f8f5ed;
+            color: var(--texto);
+            padding: 32px;
+            border-radius: 6px;
+        }
+
+        .calculator h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .calculator label {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            margin: 15px 0 6px;
+        }
+
+        .calculator input,
+        .calculator select {
+            width: 100%;
+            height: 43px;
+            border: 1px solid #d9d0c0;
+            background: white;
+            padding: 0 12px;
+        }
+
+        .calculate {
+            width: 100%;
+            margin-top: 20px;
+            height: 45px;
+            border: none;
+            background: var(--terracota);
+            color: white;
+            font-family: "Montserrat";
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            border-top: 1px solid #ddd5c7;
+            padding-top: 17px;
+            color: #777;
+            font-size: 11px;
+        }
+
+        .result strong {
+            display: block;
+            color: var(--verde-profundo);
+            font-family: "Montserrat";
+            font-size: 27px;
+            margin-top: 5px;
+        }
+
+
+        /* =====================================================
+           CONTACTO
+        ===================================================== */
+
+        .contact {
+            padding: 100px 8%;
+            background: #ebe3d4;
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact h2 {
+            color: var(--verde-profundo);
+            font-size: 46px;
+            line-height: 1.1;
+            margin-bottom: 22px;
+        }
+
+        .contact-description {
+            color: #657168;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .contact-data {
+            margin-top: 30px;
+            line-height: 2;
+            font-size: 13px;
+            color: #46594b;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 35px;
+            border-radius: 6px;
+            box-shadow: 0 15px 35px rgba(40,50,35,0.08);
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            border: 1px solid #ddd6c9;
+            padding: 13px;
+            margin-bottom: 12px;
+            font-family: Arial;
+            background: #fcfbf8;
+        }
+
+        .contact-form textarea {
+            height: 110px;
+            resize: none;
+        }
+
+        .contact-form button {
+            width: 100%;
+            background: var(--verde);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #0c2d20;
+            color: white;
+            padding: 35px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .logo {
+            font-size: 20px;
+        }
+
+        footer p {
+            color: #a8b8ad;
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            nav {
+                display: none;
+            }
+
+            .cars {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filters {
+                flex-wrap: wrap;
+            }
+
+            .financing-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            header {
+                padding: 0 5%;
+            }
+
+            .header-button {
+                display: none;
+            }
+
+            .hero {
+                padding: 0 7%;
+                min-height: 650px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .inventory,
+            .benefits-section,
+            .financing,
+            .contact {
+                padding: 75px 6%;
+            }
+
+            .cars {
+                grid-template-columns: 1fr;
+            }
+
+            .section-top {
+                display: block;
+            }
+
+            .section-top h2 {
+                font-size: 35px;
+                margin-bottom: 20px;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .filter-button {
+                width: 100%;
+            }
+
+            .jungle-content h2 {
+                font-size: 36px;
+            }
+
+            .financing h2,
+            .contact h2 {
+                font-size: 37px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header>
+
+        <div class="logo">
+            VERDE<span>MOTORS</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#inventario">Vehículos</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#financiamiento">Financiamiento</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+        <button
+            class="header-button"
+            onclick="document.getElementById('contacto').scrollIntoView()">
+            Cotizar
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                MOVILIDAD · ESTILO · LIBERTAD
+            </div>
+
+            <h1>
+                Tu próximo auto
+                comienza <span>aquí.</span>
+            </h1>
+
+            <p>
+                Descubre una selección de vehículos pensados para
+                acompañarte en cada camino. Autos nuevos y seminuevos,
+                precios transparentes y opciones de financiamiento
+                adaptadas a ti.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#inventario" class="btn-main">
+                    Explorar vehículos
+                </a>
+
+                <a href="#contacto" class="btn-outline">
+                    Hablar con un asesor
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="leaf one">🌿</div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BUSCADOR
+    ====================================================== -->
+
+    <div class="search-wrapper">
+
+        <div class="search-box">
+
+            <div class="search-title">
+
+                <h2>
+                    Encuentra tu vehículo
+                </h2>
+
+                <p>
+                    Busca según tus necesidades
+                </p>
+
+            </div>
+
+            <div class="filters">
+
+                <select id="brand">
+
+                    <option value="todos">
+                        Todas las marcas
+                    </option>
+
+                    <option>
+                        Toyota
+                    </option>
+
+                    <option>
+                        Chevrolet
+                    </option>
+
+                    <option>
+                        Hyundai
+                    </option>
+
+                    <option>
+                        Kia
+                    </option>
+
+                </select>
+
+
+                <select>
+
+                    <option>
+                        Tipo de vehículo
+                    </option>
+
+                    <option>
+                        SUV
+                    </option>
+
+                    <option>
+                        Sedán
+                    </option>
+
+                    <option>
+                        Pickup
+                    </option>
+
+                    <option>
+                        Hatchback
+                    </option>
+
+                </select>
+
+
+                <select>
+
+                    <option>
+                        Rango de precio
+                    </option>
+
+                    <option>
+                        Menos de $20.000
+                    </option>
+
+                    <option>
+                        $20.000 - $30.000
+                    </option>
+
+                    <option>
+                        $30.000 - $40.000
+                    </option>
+
+                    <option>
+                        Más de $40.000
+                    </option>
+
+                </select>
+
+
+                <button
+                    class="filter-button"
+                    onclick="document.getElementById('inventario').scrollIntoView()">
+
+                    BUSCAR
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         INVENTARIO
+    ====================================================== -->
+
+    <section class="inventory" id="inventario">
+
+        <div class="leaf two">🌿</div>
+
+        <div class="section-top">
+
+            <div>
+
+                <div class="section-label">
+                    NUESTRO INVENTARIO
+                </div>
+
+                <h2>
+                    Vehículos destacados
+                </h2>
+
+            </div>
+
+            <p class="section-description">
+
+                Una selección cuidadosamente elegida para quienes
+                buscan diseño, tecnología, seguridad y una experiencia
+                de conducción diferente.
+
+            </p>
+
+        </div>
+
+
+        <div class="cars">
+
+
+            <!-- =================================================
+                 AUTO 1
+            ================================================== -->
+
+            <article class="car-card">
+
+                <div class="car-photo">
+
+                    <div class="badge">
+                        DESTACADO
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Toyota RAV4">
+
+                </div>
+
+                <div class="car-content">
+
+                    <div class="car-brand">
+                        Toyota
+                    </div>
+
+                    <h3>
+                        RAV4 Hybrid
+                    </h3>
+
+                    <p class="car-description">
+
+                        SUV moderna y versátil, diseñada para quienes
+                        buscan comodidad, eficiencia y espacio sin
+                        renunciar a una conducción dinámica.
+
+                    </p>
+
+                    <div class="car-specs">
+
+                        <span class="spec">
+                            2025
+                        </span>
+
+                        <span class="spec">
+                            Automático
+                        </span>
+
+                        <span class="spec">
+                            Híbrido
+                        </span>
+
+                        <span class="spec">
+                            SUV
+                        </span>
+
+                    </div>
+
+                    <div class="price-row">
+
+                        <div>
+
+                            <span class="price-label">
+                                PRECIO
+                            </span>
+
+                            <strong class="price">
+                                $38.500
+                            </strong>
+
+                        </div>
+
+                        <button
+                            class="view-car"
+                            onclick="contactCar('Toyota RAV4 Hybrid')">
+
+                            COTIZAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 AUTO 2
+            ================================================== -->
+
+            <article class="car-card">
+
+                <div class="car-photo">
+
+                    <div class="badge new">
+                        NUEVO
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Chevrolet Onix">
+
+                </div>
+
+                <div class="car-content">
+
+                    <div class="car-brand">
+                        Chevrolet
+                    </div>
+
+                    <h3>
+                        Onix Premier
+                    </h3>
+
+                    <p class="car-description">
+
+                        Un sedán compacto con diseño contemporáneo,
+                        tecnología intuitiva y excelente equilibrio
+                        entre rendimiento, comodidad y economía.
+
+                    </p>
+
+                    <div class="car-specs">
+
+                        <span class="spec">
+                            2025
+                        </span>
+
+                        <span class="spec">
+                            Automático
+                        </span>
+
+                        <span class="spec">
+                            Gasolina
+                        </span>
+
+                        <span class="spec">
+                            Sedán
+                        </span>
+
+                    </div>
+
+                    <div class="price-row">
+
+                        <div>
+
+                            <span class="price-label">
+                                PRECIO
+                            </span>
+
+                            <strong class="price">
+                                $24.500
+                            </strong>
+
+                        </div>
+
+                        <button
+                            class="view-car"
+                            onclick="contactCar('Chevrolet Onix Premier')">
+
+                            COTIZAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 AUTO 3
+            ================================================== -->
+
+            <article class="car-card">
+
+                <div class="car-photo">
+
+                    <div class="badge offer">
+                        OFERTA
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1000&q=85"
+                        alt="Hyundai Tucson">
+
+                </div>
+
+                <div class="car-content">
+
+                    <div class="car-brand">
+                        Hyundai
+                    </div>
+
+                    <h3>
+                        Tucson
+                    </h3>
+
+                    <p class="car-description">
+
+                        SUV de diseño sofisticado con amplio espacio
+                        interior, tecnología avanzada y una experiencia
+                        de conducción pensada para ciudad y carretera.
+
+                    </p>
+
+                    <div class="car-specs">
+
+                        <span class="spec">
+                            2025
+                        </span>
+
+                        <span class="spec">
+                            Automático
+                        </span>
+
+                        <span class="spec">
+                            Gasolina
+                        </span>
+
+                        <span class="spec">
+                            SUV
+                        </span>
+
+                    </div>
+
+                    <div class="price-row">
+
+                        <div>
+
+                            <span class="price-label">
+                                PRECIO
+                            </span>
+
+                            <strong class="price">
+                                $32.900
+                            </strong>
+
+                        </div>
+
+                        <button
+                            class="view-car"
+                            onclick="contactCar('Hyundai Tucson')">
+
+                            COTIZAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 AUTO 4
+            ================================================== -->
+
+            <article class="car-card">
+
+                <div class="car-photo">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1000&q=85"
+                        alt="Kia Sportage">
+
+                </div>
+
+                <div class="car-content">
+
+                    <div class="car-brand">
+                        Kia
+                    </div>
+
+                    <h3>
+                        Sportage
+                    </h3>
+
+                    <p class="car-description">
+
+                        Una SUV equilibrada que combina diseño elegante,
+                        confort interior y tecnología para hacer de cada
+                        trayecto una experiencia agradable.
+
+                    </p>
+
+                    <div class="car-specs">
+
+                        <span class="spec">
+                            2024
+                        </span>
+
+                        <span class="spec">
+                            Automático
+                        </span>
+
+                        <span class="spec">
+                            Gasolina
+                        </span>
+
+                        <span class="spec">
+                            SUV
+                        </span>
+
+                    </div>
+
+                    <div class="price-row">
+
+                        <div>
+
+                            <span class="price-label">
+                                PRECIO
+                            </span>
+
+                            <strong class="price">
+                                $29.900
+                            </strong>
+
+                        </div>
+
+                        <button
+                            class="view-car"
+                            onclick="contactCar('Kia Sportage')">
+
+                            COTIZAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 AUTO 5
+            ================================================== -->
+
+            <article class="car-card">
+
+                <div class="car-photo">
+
+                    <div class="badge">
+                        DESTACADO
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1000&q=85"
+                        alt="BMW Serie 3">
+
+                </div>
+
+                <div class="car-content">
+
+                    <div class="car-brand">
+                        BMW
+                    </div>
+
+                    <h3>
+                        Serie 3
+                    </h3>
+
+                    <p class="car-description">
+
+                        Sedán premium que combina elegancia, respuesta
+                        deportiva y tecnología para quienes buscan una
+                        experiencia de conducción más sofisticada.
+
+                    </p>
+
+                    <div class="car-specs">
+
+                        <span class="spec">
+                            2025
+                        </span>
+
+                        <span class="spec">
+                            Automático
+                        </span>
+
+                        <span class="spec">
+                            Gasolina
+                        </span>
+
+                        <span class="spec">
+                            Sedán
+                        </span>
+
+                    </div>
+
+                    <div class="price-row">
+
+                        <div>
+
+                            <span class="price-label">
+                                PRECIO
+                            </span>
+
+                            <strong class="price">
+                                $49.900
+                            </strong>
+
+                        </div>
+
+                        <button
+                            class="view-car"
+                            onclick="contactCar('BMW Serie 3')">
+
+                            COTIZAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 AUTO 6
+            ================================================== -->
+
+            <article class="car-card">
+
+                <div class="car-photo">
+
+                    <div class="badge new">
+                        NUEVO
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=1000&q=85"
+                        alt="Ford Ranger">
+
+                </div>
+
+                <div class="car-content">
+
+                    <div class="car-brand">
+                        Ford
+                    </div>
+
+                    <h3>
+                        Ranger
+                    </h3>
+
+                    <p class="car-description">
+
+                        Pickup robusta y preparada para el trabajo,
+                        viajes y aventura, con gran capacidad y una
+                        conducción cómoda para el día a día.
+
+                    </p>
+
+                    <div class="car-specs">
+
+                        <span class="spec">
+                            2025
+                        </span>
+
+                        <span class="spec">
+                            Automático
+                        </span>
+
+                        <span class="spec">
+                            Diésel
+                        </span>
+
+                        <span class="spec">
+                            Pickup
+                        </span>
+
+                    </div>
+
+                    <div class="price-row">
+
+                        <div>
+
+                            <span class="price-label">
+                                PRECIO
+                            </span>
+
+                            <strong class="price">
+                                $42.500
+                            </strong>
+
+                        </div>
+
+                        <button
+                            class="view-car"
+                            onclick="contactCar('Ford Ranger')">
+
+                            COTIZAR
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SELVA
+    ====================================================== -->
+
+    <section class="jungle-section">
+
+        <div class="jungle-content">
+
+            <div class="section-label">
+                MÁS QUE UN VEHÍCULO
+            </div>
+
+            <h2>
+                El camino también
+                forma parte del viaje.
+            </h2>
+
+            <p>
+
+                En Verde Motors creemos que elegir un automóvil
+                es elegir nuevas experiencias. Por eso combinamos
+                movilidad, confianza y una atención cercana para
+                ayudarte a encontrar el vehículo que realmente
+                encaje contigo.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BENEFICIOS
+    ====================================================== -->
+
+    <section class="benefits-section" id="beneficios">
+
+        <div class="benefits-title">
+
+            <div class="section-label">
+                VERDE MOTORS
+            </div>
+
+            <h2>
+                Compra con confianza
+            </h2>
+
+        </div>
+
+
+        <div class="benefits-grid">
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Vehículos seleccionados
+                </h3>
+
+                <p>
+                    Cada automóvil de nuestro inventario es
+                    seleccionado pensando en ofrecer una combinación
+                    equilibrada de calidad, diseño y confiabilidad.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    $
+                </div>
+
+                <h3>
+                    Precios transparentes
+                </h3>
+
+                <p>
+                    Conoce el precio del vehículo desde el primer
+                    momento y recibe información clara sobre las
+                    alternativas disponibles para tu compra.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    ★
+                </div>
+
+                <h3>
+                    Atención personalizada
+                </h3>
+
+                <p>
+                    Nuestro equipo te acompaña durante la búsqueda,
+                    cotización y proceso de compra para que puedas
+                    tomar tu decisión con toda la información.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FINANCIAMIENTO
+    ====================================================== -->
+
+    <section class="financing" id="financiamiento">
+
+        <div class="financing-container">
+
+            <div>
+
+                <div class="section-label">
+                    FINANCIAMIENTO
+                </div>
+
+                <h2>
+                    Haz realidad tu
+                    próximo viaje.
+                </h2>
+
+                <p class="financing-text">
+
+                    Simula una cuota aproximada y descubre cómo
+                    podría estructurarse la compra de tu vehículo.
+                    Las condiciones finales dependerán de la
+                    institución financiera y del perfil del cliente.
+
+                </p>
+
+            </div>
+
+
+            <div class="calculator">
+
+                <h3>
+                    Simulador de cuota
+                </h3>
+
+                <label>
+                    Precio del vehículo
+                </label>
+
+                <input
+                    type="number"
+                    id="carPrice"
+                    value="30000"
+                >
+
+                <label>
+                    Entrada
+                </label>
+
+                <input
+                    type="number"
+                    id="downPayment"
+                    value="5000"
+                >
+
+                <label>
+                    Plazo
+                </label>
+
+                <select id="months">
+
+                    <option value="36">
+                        36 meses
+                    </option>
+
+                    <option value="48">
+                        48 meses
+                    </option>
+
+                    <option value="60">
+                        60 meses
+                    </option>
+
+                </select>
+
+                <button
+                    class="calculate"
+                    onclick="calculatePayment()">
+
+                    CALCULAR CUOTA
+
+                </button>
+
+                <div class="result">
+
+                    CUOTA MENSUAL APROXIMADA
+
+                    <strong id="monthlyPayment">
+                        $0,00
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACTO
+    ====================================================== -->
+
+    <section class="contact" id="contacto">
+
+        <div class="contact-container">
+
+            <div>
+
+                <div class="section-label">
+                    HABLEMOS
+                </div>
+
+                <h2>
+                    Encuentra el auto
+                    que estabas buscando.
+                </h2>
+
+                <p class="contact-description">
+
+                    Cuéntanos qué vehículo tienes en mente.
+                    Un asesor de Verde Motors podrá ayudarte con
+                    disponibilidad, características, precios y
+                    alternativas de financiamiento.
+
+                </p>
+
+                <div class="contact-data">
+
+                    <div>
+                        📍 Cuenca, Ecuador
+                    </div>
+
+                    <div>
+                        📞 +593 99 999 9999
+                    </div>
+
+                    <div>
+                        ✉ ventas@verdemotors.com
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <form
+                class="contact-form"
+                onsubmit="sendForm(event)">
+
+                <input
+                    type="text"
+                    placeholder="Nombre completo"
+                    required
+                >
+
+                <input
+                    type="email"
+                    placeholder="Correo electrónico"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    placeholder="Número de teléfono"
+                    required
+                >
+
+                <select required>
+
+                    <option value="">
+                        ¿Qué vehículo te interesa?
+                    </option>
+
+                    <option>
+                        Toyota RAV4 Hybrid
+                    </option>
+
+                    <option>
+                        Chevrolet Onix Premier
+                    </option>
+
+                    <option>
+                        Hyundai Tucson
+                    </option>
+
+                    <option>
+                        Kia Sportage
+                    </option>
+
+                    <option>
+                        BMW Serie 3
+                    </option>
+
+                    <option>
+                        Ford Ranger
+                    </option>
+
+                </select>
+
+                <textarea
+                    placeholder="¿En qué podemos ayudarte?">
+                </textarea>
+
+                <button type="submit">
+                    SOLICITAR COTIZACIÓN
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="logo">
+            VERDE<span>MOTORS</span>
+        </div>
+
+        <p>
+            © 2026 Verde Motors · Movilidad que conecta contigo.
+        </p>
+
+        <p>
+            Instagram · Facebook · WhatsApp
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =========================================
+           CALCULADORA
+        ========================================= */
+
+        function calculatePayment() {
+
+            const price =
+                Number(document.getElementById("carPrice").value);
+
+            const downPayment =
+                Number(document.getElementById("downPayment").value);
+
+            const months =
+                Number(document.getElementById("months").value);
+
+            const financed =
+                price - downPayment;
+
+            if (financed <= 0) {
+
+                document.getElementById("monthlyPayment")
+                    .textContent = "$0,00";
+
+                return;
+            }
+
+            /*
+                Tasa referencial únicamente para
+                demostración del sitio.
+            */
+
+            const annualRate = 0.12;
+
+            const monthlyRate =
+                annualRate / 12;
+
+            const payment =
+                financed *
+                (
+                    monthlyRate *
+                    Math.pow(
+                        1 + monthlyRate,
+                        months
+                    )
+                )
+                /
+                (
+                    Math.pow(
+                        1 + monthlyRate,
+                        months
+                    ) - 1
+                );
+
+            document.getElementById("monthlyPayment")
+                .textContent =
+                "$" +
+                payment.toLocaleString("es-EC", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+        }
+
+
+        /* =========================================
+           COTIZAR VEHÍCULO
+        ========================================= */
+
+        function contactCar(carName) {
+
+            const select =
+                document.querySelector(".contact-form select");
+
+            for (let option of select.options) {
+
+                if (option.text === carName) {
+
+                    select.value = carName;
+
+                    break;
+                }
+            }
+
+            document
+                .getElementById("contacto")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+
+        /* =========================================
+           FORMULARIO
+        ========================================= */
+
+        function sendForm(event) {
+
+            event.preventDefault();
+
+            alert(
+                "¡Gracias por contactar a Verde Motors!\n\n" +
+                "Hemos recibido tu solicitud de cotización."
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
